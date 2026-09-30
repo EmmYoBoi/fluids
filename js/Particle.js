@@ -27,7 +27,7 @@ export class Particle {
   }
   
   update(dt) {
-    for (const f in this.forces) {
+    for (const f of this.forces) {
       this.sf.x += f.x;
       this.sf.y += f.y;
     }
@@ -36,6 +36,8 @@ export class Particle {
 
     this.accel.x = this.sf.x/this.mass;
     this.accel.y = this.sf.y/this.mass;
+
+    this.sf = {x: 0, y: 0};
 
     this.vel.x += this.accel.x * dt;
     this.vel.y += this.accel.y * dt;
