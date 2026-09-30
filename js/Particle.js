@@ -1,6 +1,7 @@
 export class Particle {
   constructor(x, y, mass) {
     this.mass = mass;
+    this.density = 0;
     
     this.pos = {
       x: x,
