@@ -48,7 +48,7 @@ export class Particle {
 
   draw(ctx, BASIC_RADIUS) {
     ctx.beginPath();
-    ctx.arc(this.x, this.y, BASIC_RADIUS*Math.sqrt(this.mass), 0, Math.PI*2);
+    ctx.arc(this.pos.x, this.pos.y, BASIC_RADIUS*Math.sqrt(this.mass), 0, Math.PI*2);
     ctx.fill();
   }
 
