@@ -16,6 +16,8 @@ export class Fluid {
 
   addDensity(kernel) {
     for (const p of this.particles) {
+      p.density = 0;
+      
       for (const q of this.particles) {
         p.density += q.mass * kernel(Math.hypot(
           p.pos.x-q.pos.x,
@@ -34,10 +36,21 @@ export class Fluid {
   addPressureForce(Dkernel) {
     for (const p of this.particles) {
       for (const q of this.particles) {
-        let r = Math.hypot(p.pos.x-q.pos.x, p.pos.y-q.pos.y);
+        if (p === q) continue;
+  
+        const dx = p.pos.x - q.pos.x;
+        const dy = p.pos.y - q.pos.y;
+  
+        const gradient = Dkernel(dx, dy);
+  
+        const factor =
+          -q.mass *
+          (p.pressure + q.pressure) /
+          (2 * q.density);
+  
         p.addForce({
-          x: -1 * q.mass * (p.pressure + q.pressure) * Dkernel(r).x / (2 * q.density),
-          y: -1 * q.mass * (p.pressure + q.pressure) * Dkernel(r).y / (2 * q.density)
+          x: factor * gradient.x,
+          y: factor * gradient.y
         });
       }
     }
