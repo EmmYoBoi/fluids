@@ -8,6 +8,19 @@ export class Fluid {
     this.viscosity = viscosity;
   }
 
+  update(dt, g, kernel, Dkernel) {
+    this.addGravity(g);
+    this.addDensity(kernel);
+    this.addPressure();
+    this.addPressureForce(Dkernel);
+    this.addViscosityForce(kernel);
+    for (const p of this.particles) p.update(dt);
+  }
+
+  draw(ctx, BASIC_RADIUS) {
+    for (const p of this.particles) p.draw(ctx, BASIC_RADIUS);
+  }
+
   addGravity(g) {
     for (const p of this.particles) {
       p.addForce({x: p.mass * g.x, y: p.mass * g.y});
