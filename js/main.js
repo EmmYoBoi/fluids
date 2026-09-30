@@ -2,12 +2,12 @@
 let canvas = document.getElementById('screen');
 let ctx = canvas.getContext("2d");
 
-canvas.width = window.getInnerWidth;
-canvas.height = window.getInnerHeight;
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
 window.addEventListener('resize', ()=>{
-  canvas.width = window.getInnerWidth;
-  canvas.height = window.getInnerHeight;
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
 });
 
 //Test to see if ctx is working properly
