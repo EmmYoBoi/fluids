@@ -1,11 +1,12 @@
 import { Particle } from './Particle.js';
 
 export class Fluid {
-  constructor(particles, density, k, viscosity) {
+  constructor(particles, density, k, viscosity, container) {
     this.particles = particles;
     this.density = density;
     this.k = k;
     this.viscosity = viscosity;
+    this.container = container;
   }
 
   update(dt, g, kernel, Dkernel) {
@@ -15,6 +16,7 @@ export class Fluid {
     this.addPressureForce(Dkernel);
     this.addViscosityForce(kernel);
     for (const p of this.particles) p.update(dt);
+    this.addContainerInflection();
   }
 
   draw(ctx, BASIC_RADIUS) {
@@ -76,6 +78,22 @@ export class Fluid {
         x: this.viscosity * (q.vel.x - p.vel.x) * kernel(r),
         y: this.viscosity * (q.vel.y - p.vel.y) * kernel(r)
       });
+    }
+  }
+
+  addContainerInflection() {
+    for (const p of this.particles) {
+      if (p.pos.x <= this.container.x || p.pos.x >= this.container.x + this.container.dx) {
+        this.vel.x *= -1;
+        if (p.pos.x <= this.container.x) p.pos.x = this.container.x;
+        else p.pos.x = this.conatiner.x + this.container.dx;
+      }
+      
+      if (p.pos.y <= this.container.y || p.pos.y >= this.container.y + this.container.dy) {
+        this.vel.y *= -1;
+        if (p.pos.y <= this.container.y) p.pos.y = this.container.y;
+        else p.pos.y = this.conatiner.y + this.container.dy;
+      }
     }
   }
 }
