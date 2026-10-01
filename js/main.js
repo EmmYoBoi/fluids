@@ -20,7 +20,7 @@ const CONTAINER_DIMENSIONS = {
   dx: 500,
   dy: 500
 };
-const DT = 0.1;
+const DT = 0.01;
 
 //Physic consts
 const GRAVITY_ACCEL = {x:0,y:9.81};
