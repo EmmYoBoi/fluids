@@ -45,11 +45,9 @@ const GRAVITY_ACCEL = {
 
 const PARTICLE_RADIUS = 3;
 
-const PARTICLE_MASS = 1;
-
-const FLUID_DENSITY = 0.03;
-const FLUID_K = 3000;
-const FLUID_VISCOSITY = 8;
+const FLUID_DENSITY = 0.01;
+const FLUID_K = 15000;
+const FLUID_VISCOSITY = 2;
 
 const PARTICLE_NUM = 1000;
 
