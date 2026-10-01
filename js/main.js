@@ -69,8 +69,10 @@ const FLUID = new Fluid(
 );
 
 const Sim = () => {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
   FLUID.update(DT, GRAVITY_ACCEL, KERNEL, DKERNEL);
   FLUID.draw(ctx, PARTICLE_RADIUS);
+  console.log('drew');
 }
 
 setInterval(() => {Sim()}, DT*1000);
