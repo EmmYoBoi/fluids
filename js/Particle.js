@@ -1,43 +1,45 @@
 export class Particle {
   constructor(x, y, mass) {
     this.mass = mass;
+
     this.density = 0;
     this.pressure = 0;
-    
+
     this.pos = {
-      x: x,
-      y: y
+      x,
+      y
     };
 
     this.vel = {
       x: 0,
       y: 0
     };
+
     this.accel = {
       x: 0,
       y: 0
     };
 
     this.forces = [];
-
-    this.sf = {
-      x: 0,
-      y: 0
-    }
   }
-  
+
+  addForce(force) {
+    this.forces.push(force);
+  }
+
   update(dt) {
-    for (const f of this.forces) {
-      this.sf.x += f.x;
-      this.sf.y += f.y;
+    let fx = 0;
+    let fy = 0;
+
+    for (const force of this.forces) {
+      fx += force.x;
+      fy += force.y;
     }
 
-    this.forces = [];
+    this.forces.length = 0;
 
-    this.accel.x = this.sf.x/this.mass;
-    this.accel.y = this.sf.y/this.mass;
-
-    this.sf = {x: 0, y: 0};
+    this.accel.x = fx / this.mass;
+    this.accel.y = fy / this.mass;
 
     this.vel.x += this.accel.x * dt;
     this.vel.y += this.accel.y * dt;
@@ -46,13 +48,15 @@ export class Particle {
     this.pos.y += this.vel.y * dt;
   }
 
-  draw(ctx, BASIC_RADIUS) {
+  draw(ctx, radius) {
     ctx.beginPath();
-    ctx.arc(this.pos.x, this.pos.y, BASIC_RADIUS*Math.sqrt(this.mass), 0, Math.PI*2);
+    ctx.arc(
+      this.pos.x,
+      this.pos.y,
+      radius * Math.sqrt(this.mass),
+      0,
+      Math.PI * 2
+    );
     ctx.fill();
-  }
-
-  addForce(f) {
-    this.forces.push(f);
   }
 }
