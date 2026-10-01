@@ -23,7 +23,7 @@ const CONTAINER_DIMENSIONS = {
 const DT = 0.1;
 
 //Physic consts
-const GRAVITY_ACCEL = 9.81;
+const GRAVITY_ACCEL = {x:0,y:9.81};
 const PARTICLE_RADIUS = 3;
 const FLUID_DENSITY = 1;
 const FLUID_K = 1;
@@ -33,7 +33,7 @@ const PARTICLE_NUM = 50;
 //kernels
 
 const KERNEL = (r) => {
-  return (1/(r*r)+1);
+  return (1/(r*r+1));
 }
 
 const DKERNEL = (dx, dy) => {
