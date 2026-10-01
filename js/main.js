@@ -25,8 +25,8 @@ window.addEventListener('resize', resizeCanvas);
 const CONTAINER_DIMENSIONS = {
   x: 50,
   y: 50,
-  dx: 500,
-  dy: 500
+  dx: 250,
+  dy: 250
 };
 
 // Physics uses small fixed timesteps.
@@ -51,7 +51,7 @@ const FLUID_DENSITY = 0.03;
 const FLUID_K = 3000;
 const FLUID_VISCOSITY = 8;
 
-const PARTICLE_NUM = 500;
+const PARTICLE_NUM = 1000;
 
 
 // ========================
