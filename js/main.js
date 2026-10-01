@@ -51,7 +51,7 @@ const FLUID_DENSITY = 0.03;
 const FLUID_K = 3000;
 const FLUID_VISCOSITY = 8;
 
-const PARTICLE_NUM = 5000;
+const PARTICLE_NUM = 500;
 
 
 // ========================
