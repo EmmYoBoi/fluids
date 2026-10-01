@@ -31,7 +31,7 @@ const CONTAINER_DIMENSIONS = {
 
 // Physics uses small fixed timesteps.
 // Several steps are performed per rendered frame.
-const DT = 0.0025;
+const DT = 0.01;
 const SUBSTEPS = 4;
 
 
@@ -184,14 +184,12 @@ const FLUID = new Fluid(
 // ========================
 
 function simulate() {
-  for (let i = 0; i < SUBSTEPS; i++) {
     FLUID.update(
       DT,
       GRAVITY_ACCEL,
       KERNEL,
       DKERNEL
     );
-  }
 }
 
 
@@ -234,8 +232,6 @@ function draw() {
 function loop() {
   simulate();
   draw();
-
-  requestAnimationFrame(loop);
 }
 
-requestAnimationFrame(loop);
+setInterval(()=>{loop()}, DT*1000);
