@@ -118,39 +118,41 @@ export class Fluid {
   }
 
   addContainerInflection() {
+    const r = 3;
+  
     for (const p of this.particles) {
-
-      // Left wall
-      if (p.pos.x < this.container.x) {
-        p.pos.x = this.container.x;
-
+  
+      // Left
+      if (p.pos.x < this.container.x + r) {
+        p.pos.x = this.container.x + r;
+  
         if (p.vel.x < 0) {
           p.vel.x *= -1;
         }
       }
-
-      // Right wall
-      if (p.pos.x > this.container.x + this.container.dx) {
-        p.pos.x = this.container.x + this.container.dx;
-
+  
+      // Right
+      if (p.pos.x > this.container.x + this.container.dx - r) {
+        p.pos.x = this.container.x + this.container.dx - r;
+  
         if (p.vel.x > 0) {
           p.vel.x *= -1;
         }
       }
-
-      // Top wall
-      if (p.pos.y < this.container.y) {
-        p.pos.y = this.container.y;
-
+  
+      // Top
+      if (p.pos.y < this.container.y + r) {
+        p.pos.y = this.container.y + r;
+  
         if (p.vel.y < 0) {
           p.vel.y *= -1;
         }
       }
-
-      // Bottom wall
-      if (p.pos.y > this.container.y + this.container.dy) {
-        p.pos.y = this.container.y + this.container.dy;
-
+  
+      // Bottom
+      if (p.pos.y > this.container.y + this.container.dy - r) {
+        p.pos.y = this.container.y + this.container.dy - r;
+  
         if (p.vel.y > 0) {
           p.vel.y *= -1;
         }
