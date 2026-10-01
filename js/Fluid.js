@@ -86,13 +86,13 @@ export class Fluid {
       if (p.pos.x <= this.container.x || p.pos.x >= this.container.x + this.container.dx) {
         this.vel.x *= -1;
         if (p.pos.x <= this.container.x) p.pos.x = this.container.x;
-        else p.pos.x = this.conatiner.x + this.container.dx;
+        else p.pos.x = this.container.x + this.container.dx;
       }
       
       if (p.pos.y <= this.container.y || p.pos.y >= this.container.y + this.container.dy) {
         this.vel.y *= -1;
         if (p.pos.y <= this.container.y) p.pos.y = this.container.y;
-        else p.pos.y = this.conatiner.y + this.container.dy;
+        else p.pos.y = this.container.y + this.container.dy;
       }
     }
   }
