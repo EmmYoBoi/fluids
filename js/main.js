@@ -23,7 +23,7 @@ const CONTAINER_DIMENSIONS = {
 const DT = 0.01;
 
 //Physic consts
-const GRAVITY_ACCEL = {x:0,y:9.81};
+const GRAVITY_ACCEL = {x:0,y:9810};
 const PARTICLE_RADIUS = 3;
 const FLUID_DENSITY = 1;
 const FLUID_K = 1;
