@@ -28,7 +28,7 @@ const PARTICLE_RADIUS = 3;
 const FLUID_DENSITY = 1;
 const FLUID_K = 1;
 const FLUID_VISCOSITY = 1;
-const PARTICLE_NUM = 50;
+const PARTICLE_NUM = 500;
 
 //kernels
 
