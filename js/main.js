@@ -44,6 +44,7 @@ const GRAVITY_ACCEL = {
 };
 
 const PARTICLE_RADIUS = 3;
+const PARTICLE_MASS = 1;
 
 const FLUID_DENSITY = 0.01;
 const FLUID_K = 15000;
