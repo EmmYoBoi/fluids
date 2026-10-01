@@ -65,7 +65,8 @@ const FLUID = new Fluid(
   ), 
   FLUID_DENSITY,
   FLUID_K,
-  FLUID_VISCOSITY
+  FLUID_VISCOSITY,
+  CONTAINER_DIMENSIONS
 );
 
 const Sim = () => {
