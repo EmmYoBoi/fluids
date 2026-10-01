@@ -32,7 +32,6 @@ const CONTAINER_DIMENSIONS = {
 // Physics uses small fixed timesteps.
 // Several steps are performed per rendered frame.
 const DT = 0.01;
-const SUBSTEPS = 4;
 
 
 // ========================
