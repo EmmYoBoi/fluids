@@ -58,9 +58,9 @@ const generateParticles = (x, y, dx, dy, n) => {
 const FLUID = new Fluid(
   generateParticles(
     CONTAINER_DIMENSIONS.x,
-    CONTAINER_DIMENSIONS.y,
+    CONTAINER_DIMENSIONS.y + CONTAINER_DIMENSIONS.dy*3/4,
     CONTAINER_DIMENSIONS.dx,
-    CONTAINER_DIMENSIONS.dy,
+    CONTAINER_DIMENSIONS.dy/4,
     PARTICLE_NUM
   ), 
   FLUID_DENSITY,
