@@ -76,4 +76,4 @@ const Sim = () => {
   console.log('drew');
 }
 
-setInterval(() => {Sim()}, DT*1000);
+setInterval(() => {Sim()}, DT*250);
